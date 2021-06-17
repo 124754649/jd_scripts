@@ -3,7 +3,7 @@
 ## 文件路径、脚本网址
 dir_shell=$(dirname $(readlink -f "$0"))
 dir_root=$dir_shell
-url_scripts=git@github.com:JDHelloWorld/jd_scripts.git
+url_scripts=${JD_SCRIPTS_URL:-git@github.com:JDHelloWorld/jd_scripts.git}
 send_mark=$dir_shell/send_mark
 
 ## 导入通用变量与函数
@@ -426,7 +426,7 @@ own脚本目录：$dir_own
 update_shell () {
     #echo -e "--------------------------------------------------------------\n"
     ## 更新jup任务的cron
-    #random_update_jup_cron
+    random_update_jup_cron
 
     ## 重置仓库romote url
     if [[ $JD_DIR ]] && [[ $ENABLE_RESET_REPO_URL == true ]]; then
